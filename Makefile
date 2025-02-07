@@ -19,9 +19,9 @@ $(NAME2): $(SOBJ)
 	$(CC) $(SOBJ) -o $(NAME2)
 
 clean : 
-	rm $(COBJ) $(SOBJ)
+	@rm $(COBJ) $(SOBJ)
 fclean : clean
-	rm $(NAME1) $(NAME2)
+	@rm $(NAME1) $(NAME2)
 
 re: fclean all
 
