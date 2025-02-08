@@ -6,16 +6,16 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:39:36 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/08 16:44:09 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/08 18:41:58 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void    derror(void)
+void	derror(void)
 {
-	write (2, "Error\n", 6);
-	exit (1);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 int	ft_atoi(const char *str)
@@ -25,8 +25,8 @@ int	ft_atoi(const char *str)
 	long	result;
 
 	i = 0;
-	sign = 1;
 	result = 0;
+	sign = 1;
 	while (str[i] && ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13)))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -38,10 +38,8 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i++] - 48);
-		if (result > 2147483647 || result < -2147483648)
+		if ((sign * result) > 2147483647 || (sign * result) < -2147483648)
 			derror();
 	}
-	if (str[i])
-		derror();
 	return (sign * result);
 }
