@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:37:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/09 15:45:58 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/09 15:56:28 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 int	*char_bin(int c)
 {
 	int	i;
-	int	result;
+	// int	result;
 	int	*bits;
 
 	bits = malloc(sizeof(int) * 8);
 	if (!bits)
 		return (0);
 	i = 7;
-	result = 0;
+	// result = 0;
 	while (i >= 0)
 	{
 		bits[i--] = c % 2;
@@ -60,10 +60,7 @@ void	send_signals(pid_t pid, char *str)
 int	main(int ac, char **av)
 {
 	pid_t	pid;
-	int		i;
-	int		sig;
 
-	i = 0;
 	if (ac == 3)
 	{
 		pid = (pid_t)ft_atoi(av[1]);

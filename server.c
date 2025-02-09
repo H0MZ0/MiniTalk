@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:59:49 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/09 15:12:47 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/09 16:03:09 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	sig_handler(int sig)
 
 int	main(void)
 {
-	printf("use this PID : {%d}\n", getpid());
+	ft_putnbr(getpid());
+	write (1, "\n", 1);
 	
 	struct sigaction sig;
 	sig.sa_flags = 0;
@@ -47,8 +48,6 @@ int	main(void)
 
 	sigaction(SIGUSR1, &sig, NULL);
 	sigaction(SIGUSR2, &sig, NULL);
-	// signal(SIGUSR1, sig_handler);
-	// signal(SIGUSR2, sig_handler);
 	while (1)
 		pause();
 }

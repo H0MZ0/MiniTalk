@@ -1,19 +1,19 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-CLN = client.c
-SRV = server.c
+CLN = client.c ft_atoi.c
+SRV = server.c ft_putnbr.c
 
 COBJ = $(CLN:.c=.o)
 SOBJ = $(SRV:.c=.o)
 
-# NAME1 = client
+NAME1 = client
 NAME2 = server
 
-all : $(NAME2)
+all : $(NAME1)
 
-# $(NAME1): $(COBJ) $(NAME2)
-# 	$(CC) $(COBJ) -o $(NAME1)
+$(NAME1): $(COBJ) $(NAME2)
+	$(CC) $(COBJ) -o $(NAME1)
 
 $(NAME2): $(SOBJ)
 	$(CC) $(SOBJ) -o $(NAME2)

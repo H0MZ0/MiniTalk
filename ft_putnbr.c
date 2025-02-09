@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 15:28:53 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/09 16:05:00 by hakader          ###   ########.fr       */
+/*   Created: 2025/02/09 15:57:03 by hakader           #+#    #+#             */
+/*   Updated: 2025/02/09 16:04:42 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "minitalk.h"
 
-// # include "../LIBFT/libft.h"
-# include <signal.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <stdlib.h>
+void    ft_putchar(char c)
+{
+    write (1, &c, 1);
+}
 
-int		ft_atoi(const char *str);
-void	ft_putnbr(int n);
-void    ft_putchar(char c);
-
-#endif
+void	ft_putnbr(int n)
+{
+	if (n == -2147483648)
+		write (1, "-2147483648", 11);
+	else if (n < 0)
+	{
+		write (1, "-", 1);
+		n *= -1;
+		ft_putnbr(n);
+	}
+	else if (n >= 0 && n <= 9)
+	{
+		ft_putchar(n + '0');
+	}
+	else
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
+}
