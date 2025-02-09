@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:37:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/09 15:14:35 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/09 15:45:58 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	send_signals(pid_t pid, char *str)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			usleep(2000);
+			usleep(400);
 			j++;
 		}
 		i++;
