@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:59:49 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/09 14:12:19 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/09 15:12:47 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	sig_handler(int sig)
 		result = 0;
 		while (j < 8)
 			result = result * 2 + bits[j++];
-		write(1, &result, 1);
+		char c = (char)result;
+		write(1, &c, 1);
 		i = 0;
 	}
 }
@@ -39,8 +40,15 @@ void	sig_handler(int sig)
 int	main(void)
 {
 	printf("use this PID : {%d}\n", getpid());
-	signal(SIGUSR1, sig_handler);
-	signal(SIGUSR2, sig_handler);
+	
+	struct sigaction sig;
+	sig.sa_flags = 0;
+	sig.sa_handler = sig_handler;
+
+	sigaction(SIGUSR1, &sig, NULL);
+	sigaction(SIGUSR2, &sig, NULL);
+	// signal(SIGUSR1, sig_handler);
+	// signal(SIGUSR2, sig_handler);
 	while (1)
 		pause();
 }
