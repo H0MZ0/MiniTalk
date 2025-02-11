@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:59:49 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/09 16:03:09 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/10 14:46:30 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	sig_handler(int sig)
 	int j;
 
 	if (sig == SIGUSR1)
-		bits[i] = 0;
-	else if (sig == SIGUSR2)
 		bits[i] = 1;
+	else if (sig == SIGUSR2)
+		bits[i] = 0;
 	i++;
 	j = 0;
 	if (i == 8)
