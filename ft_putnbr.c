@@ -6,15 +6,15 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:57:03 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/09 16:04:42 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/14 12:05:54 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void    ft_putchar(char c)
+void	ft_putchar(char c)
 {
-    write (1, &c, 1);
+	write (1, &c, 1);
 }
 
 void	ft_putnbr(int n)
@@ -28,9 +28,7 @@ void	ft_putnbr(int n)
 		ft_putnbr(n);
 	}
 	else if (n >= 0 && n <= 9)
-	{
 		ft_putchar(n + '0');
-	}
 	else
 	{
 		ft_putnbr(n / 10);

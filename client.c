@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:37:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/11 14:08:18 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/14 11:43:26 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,34 @@
 
 void	char_bin(unsigned char c, int bits[8])
 {
-	int	i;
+	int		i;
 
 	i = 8;
 	while (i--)
-		bits[i] = c & 1, c >>= 1;
+	{
+		bits[i] = c & 1;
+		c >>= 1;
+	}
 }
 
 void	send_signals(pid_t pid, char *str)
 {
-	int	i;
-	int	j;
-	int	bits[8];
+	int		i;
+	int		j;
+	int		bits[8];
 
 	i = 0;
 	while (str[i])
 	{
-		j = 0;
 		char_bin(str[i], bits);
-		while (j <= 7)
+		j = 0;
+		while (j < 8)
 		{
 			if (bits[j] == 1)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			usleep(500);
+			usleep(20);
 			j++;
 		}
 		i++;
