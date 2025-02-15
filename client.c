@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:37:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/15 18:22:42 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/15 18:26:06 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ void	char_bin(unsigned char c, int bits[8])
 
 void	send_signals(pid_t pid, char *str)
 {
-	int			i;
-	int			j;
-	int			bits[8];
+	int			(i), (j), (bits[8]);
 	const char	*message;
 
 	i = 0;
