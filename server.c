@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:59:49 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/15 11:48:18 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/15 20:20:36 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ int	main(int ac, char **av)
 	sigaction(SIGUSR2, &sig, NULL);
 	// sigaction(SIGINT, &sig, NULL);
 	while (1)
-		;
+		
 }
