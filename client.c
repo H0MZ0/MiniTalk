@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:37:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/14 11:43:26 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/15 11:19:23 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,21 @@ void	send_signals(pid_t pid, char *str)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			usleep(20);
+			usleep(80);
 			j++;
 		}
 		i++;
 	}
+	write (1, "<-Signal sended success-> !", 27);
 }
 
 int	main(int ac, char **av)
 {
 	pid_t	pid;
 
-	if (ac == 3)
-	{
-		pid = (pid_t)ft_atoi(av[1]);
-		send_signals(pid, av[2]);
-	}
+	if (ac != 3)
+		exit (1);
+	pid = (pid_t)ft_atoi(av[1]);
+	send_signals(pid, av[2]);
 	return (0);
 }
