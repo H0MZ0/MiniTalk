@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:37:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/15 12:03:09 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/15 18:22:42 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,13 @@ void	send_signals(pid_t pid, char *str)
 		while (j < 8)
 		{
 			if (bits[j] == 1)
-				kill(pid, SIGUSR1);
+			{
+				if (kill(pid, SIGUSR1))
+					(write(1, "\033[31;3minvalid PID\033[0m\n", 24)), (exit (1));
+			}
 			else
-				kill(pid, SIGUSR2);
+				if (kill(pid, SIGUSR2))
+					(write (1, "\033[31;3minvalid PID\033[0m\n", 24)), (exit (1));
 			usleep(100);
 			j++;
 		}
@@ -55,8 +59,10 @@ int	main(int ac, char **av)
 {
 	pid_t	pid;
 
-	if (ac != 3)
-		exit (1);
+	if (ac < 3)
+		(write(1, "\033[31;3mError: Too few arguments!\033[0m\n", 36)), (exit(1));
+	if (ac > 3)
+		(write(1, "\033[31;3mError: Too many arguments!\033[0m\n", 37)), (exit(1));
 	pid = (pid_t)ft_atoi(av[1]);
 	send_signals(pid, av[2]);
 	return (0);
