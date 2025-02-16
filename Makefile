@@ -13,10 +13,10 @@ NAME2 = server
 all : $(NAME1)
 
 $(NAME1): $(COBJ) $(NAME2)
-	$(CC) $(COBJ) -o $(NAME1)
+	$(CC) $(CFLAGS) $(COBJ) -o $(NAME1)
 
 $(NAME2): $(SOBJ)
-	$(CC) $(SOBJ) -o $(NAME2)
+	$(CC) $(CFLAGS) $(SOBJ) -o $(NAME2)
 
 clean : 
 	@rm -f $(COBJ) $(SOBJ)

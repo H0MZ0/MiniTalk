@@ -29,11 +29,6 @@ void	sig_handler(int sig)
 	int			result;
 	int			j;
 
-	// if (sig == SIGINT)
-	// {
-	// 	reset_int(bits);
-	// 	i = 0;
-	// }
 	if (sig == SIGUSR1)
 		bits[i] = 1;
 	else if (sig == SIGUSR2)
@@ -66,7 +61,6 @@ int	main(int ac, char **av)
 	sig.sa_handler = sig_handler;
 	sigaction(SIGUSR1, &sig, NULL);
 	sigaction(SIGUSR2, &sig, NULL);
-	// sigaction(SIGINT, &sig, NULL);
 	while (1)
-		
+		;
 }

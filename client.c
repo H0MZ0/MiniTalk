@@ -24,9 +24,29 @@ void	char_bin(unsigned char c, int bits[8])
 	}
 }
 
+void	send_bit(pid_t pid, int bit)
+{
+	if (bit == 1)
+	{
+		if (kill(pid, SIGUSR1))
+		{
+			write(2, "\033[31;3minvalid PID\033[0m\n", 24);
+			exit(1);
+		}
+	}
+	else if (kill(pid, SIGUSR2))
+	{
+		write(2, "\033[31;3minvalid PID\033\[0m\n", 24);
+		exit(1);
+	}
+	usleep(100);
+}
+
 void	send_signals(pid_t pid, char *str)
 {
-	int			(i), (j), (bits[8]);
+	int			i;
+	int			j;
+	int			bits[8];
 	const char	*message;
 
 	i = 0;
@@ -36,21 +56,13 @@ void	send_signals(pid_t pid, char *str)
 		j = 0;
 		while (j < 8)
 		{
-			if (bits[j] == 1)
-			{
-				if (kill(pid, SIGUSR1))
-					(write(2, "\033[31;3minvalid PID\033[0m\n", 24)), (exit (1));
-			}
-			else
-				if (kill(pid, SIGUSR2))
-					(write (2, "\033[31;3minvalid PID\033[0m\n", 24)), (exit (1));
-			usleep(100);
+			send_bit(pid, bits[j]);
 			j++;
 		}
 		i++;
 	}
-	message = "\033[32m<-Signal sended success-> !\033[0m\n";
-    write(1, message, strlen(message));
+	message = "\033[32m<- Signal sent successfully -> !\033[0m\n";
+	write(1, message, strlen(message));
 }
 
 int	main(int ac, char **av)
@@ -58,9 +70,15 @@ int	main(int ac, char **av)
 	pid_t	pid;
 
 	if (ac < 3)
-		(write(1, "\033[31;3mError: Too few arguments!\033[0m\n", 36)), (exit(1));
+	{
+		write(1, "\033[31;3mError: Too few arguments!\033[0m\n", 36);
+		exit(1);
+	}
 	if (ac > 3)
-		(write(1, "\033[31;3mError: Too many arguments!\033[0m\n", 37)), (exit(1));
+	{
+		write(1, "\033[31;3mError: Too many arguments!\033[0m\n", 37);
+		exit(1);
+	}
 	pid = (pid_t)ft_atoi(av[1]);
 	send_signals(pid, av[2]);
 	return (0);
