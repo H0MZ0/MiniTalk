@@ -61,7 +61,7 @@ void	send_signals(pid_t pid, char *str)
 		}
 		i++;
 	}
-	message = "\033[32m<- Signal sent successfully -> !\033[0m\n";
+	message = "\033[32m\n<- Signal sent successfully -> !\033[0m\n";
 	write(1, message, strlen(message));
 }
 
