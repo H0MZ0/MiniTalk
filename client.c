@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:37:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/18 10:12:20 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/18 10:24:09 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	send_signals(pid_t pid, char *str)
 		}
 		i++;
 	}
-	message = "\033[32m\n<- Message oppo -> !\033[0m\n";
-	write(1, message, 31);
+	message = "\033[32m<- Message oppo -> !\033[0m\n";
+	write(1, message, 30);
 }
 
 int	main(int ac, char **av)
