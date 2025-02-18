@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:37:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/17 15:58:46 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/18 08:47:04 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	send_bit(pid_t pid, int bit)
 		write(2, "\033[31;3minvalid PID\033\[0m\n", 24);
 		exit(1);
 	}
-	usleep(150);
+	usleep(70);
 }
 
 void	send_signals(pid_t pid, char *str)
@@ -61,7 +61,7 @@ void	send_signals(pid_t pid, char *str)
 		}
 		i++;
 	}
-	message = "\033[32m\n<- Signal sent successfully -> !\033[0m\n";
+	message = "\033[32m\n<- Message oppo -> !\033[0m\n";
 	write(1, message, strlen(message));
 }
 
