@@ -6,11 +6,11 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:13:22 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/19 10:13:47 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/19 12:01:48 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	reset_int(int *bits)
 {
