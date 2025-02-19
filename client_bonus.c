@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 16:37:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/19 10:18:35 by hakader          ###   ########.fr       */
+/*   Created: 2025/02/19 10:13:19 by hakader           #+#    #+#             */
+/*   Updated: 2025/02/19 10:18:18 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	send_signals(pid_t pid, char *str)
 	int			i;
 	int			j;
 	int			bits[8];
+	const char	*message;
 
 	i = 0;
 	while (str[i])
@@ -60,6 +61,8 @@ void	send_signals(pid_t pid, char *str)
 		}
 		i++;
 	}
+	message = "\033[32m<- Message oppo -> !\033[0m\n";
+	write(1, message, 30);
 }
 
 int	main(int ac, char **av)

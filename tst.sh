@@ -37,3 +37,4 @@ sleep 1
 
 # Kill the server after tests  
 kill "$SERVER_PID"
+make fclean
