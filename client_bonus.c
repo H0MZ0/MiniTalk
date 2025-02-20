@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:13:19 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/19 12:01:40 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/20 17:49:21 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ int	main(int ac, char **av)
 
 	if (ac < 3)
 	{
-		write(1, "\033[31;3mError: Too few arguments!\033[0m\n", 36);
+		write(1, "\033[31;3mError: <Valid pid> <Message>\033[0m\n", 36);
 		exit(1);
 	}
 	if (ac > 3)
 	{
-		write(1, "\033[31;3mError: Too many arguments!\033[0m\n", 37);
+		write(1, "\033[31;3mError: <Valid pid> <Message>\033[0m\n", 37);
 		exit(1);
 	}
 	pid = (pid_t)ft_atoi(av[1]);
