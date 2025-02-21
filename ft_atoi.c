@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:39:36 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/08 18:41:58 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/21 11:09:47 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	derror(void)
 {
-	write(2, "Error\n", 6);
+	write(2, "Error : max pid reached\n", 24);
 	exit(1);
 }
 
@@ -38,7 +38,7 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i++] - 48);
-		if ((sign * result) > 2147483647 || (sign * result) < -2147483648)
+		if ((sign * result) > 4194304 || (sign * result) < -2147483648)
 			derror();
 	}
 	return (sign * result);
