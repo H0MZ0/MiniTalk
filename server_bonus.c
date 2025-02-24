@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:13:22 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/19 12:01:48 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/24 20:19:32 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(int ac, char **av)
 
 	(void)av;
 	if (ac != 1)
-		(write (2, "too many arguments\n", 19)), (exit (1));
+		(write(2, "\033[31;3mJust run it\033[0m\n", 23)), (exit (1));
 	ft_putnbr(getpid());
 	write(1, "\n", 1);
 	sig.sa_flags = SA_SIGINFO;
