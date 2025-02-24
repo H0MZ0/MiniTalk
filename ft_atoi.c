@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:39:36 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/21 11:09:47 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/21 15:34:39 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ int	ft_atoi(const char *str)
 		if ((sign * result) > 4194304 || (sign * result) < -2147483648)
 			derror();
 	}
+	if (str[i])
+		(write (2, "Error\n", 6)), (exit(-1));
 	return (sign * result);
 }
